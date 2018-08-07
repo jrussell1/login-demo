@@ -1,3 +1,21 @@
+/*
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * FirebaseUI initialization to be used in a Single Page application context.
+ */
+
 /**
  * @return {!Object} The FirebaseUI config.
  */
@@ -29,35 +47,35 @@ function getUiConfig() {
         // Required to enable ID token credentials for this provider.
         clientId: CLIENT_ID
       },
-      {
-        provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        scopes :[
-          'public_profile',
-          'email',
-          'user_likes',
-          'user_friends'
-        ]
-      },
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      {
-        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      //{
+        //provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //scopes :[
+          //'public_profile',
+          //'email',
+          //'user_likes',
+          //'user_friends'
+        //]
+      //},
+      //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      //{
+        //provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // Whether the display name should be displayed in Sign Up page.
-        requireDisplayName: true
-      },
-      {
-        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-        recaptchaParameters: {
-          size: getRecaptchaMode()
-        }
-      },
-      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+        //requireDisplayName: true
+      //},
+      //{
+        //provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+        //recaptchaParameters: {
+          //size: getRecaptchaMode()
+        //}
+      //},
+      //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
     ],
     // Terms of service url.
     'tosUrl': 'https://www.google.com',
     // Privacy policy url.
     'privacyPolicyUrl': 'https://www.google.com',
-    'credentialHelper': CLIENT_ID && CLIENT_ID != 'fir-oauth-demo-63113' ?
+    'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
         firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
         firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
   };

@@ -55,11 +55,10 @@
         ],
         // Terms of service url.
         'tosUrl': 'https://www.google.com',
-        'credentialHelper': CLIENT_ID && CLIENT_ID != 'fir-oauth-demo-63113' ?
+        'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
             firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
             firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
       };
-
       // Initialize the FirebaseUI Widget using Firebase.
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded to include the FirebaseUI sign-in widget
