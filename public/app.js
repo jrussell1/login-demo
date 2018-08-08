@@ -136,6 +136,16 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
+
+  const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
+exports.addUserToDB = functions.auth.user().onCreate(event => {
+  admin.database().ref('/users/' + event.data.uid).set({
+    name: event.data.displayName,
+    email: event.data.email
+  });
+});
 };
 
 
