@@ -136,17 +136,20 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
-
-  const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
-exports.addUserToDB = functions.auth.user().onCreate(event => {
-  admin.database().ref('/users/' + event.data.uid).set({
-    name: event.data.displayName,
-    email: event.data.email
-  });
-});
 };
+
+usersRef = rootRef.child('users')
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    let userRef = usersRef.child(user.uid)
+    userRef.set({
+      name: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+    })
+  }
+}
 
 
 /**
