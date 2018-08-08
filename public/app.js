@@ -136,14 +136,7 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
-  
-  var user = $("#email").val();
-  user.push({
-    email: email,
-  });
 };
-
-
 
 
 /**
