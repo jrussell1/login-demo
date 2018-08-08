@@ -136,20 +136,14 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
+  
+  var user = $("#email").val();
+  user.push({
+    email: email,
+  });
 };
 
-usersRef = rootRef.child('users')
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    let userRef = usersRef.child(user.uid)
-    userRef.set({
-      name: user.displayName,
-      email: user.email,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    })
-  }
-}
+
 
 
 /**
