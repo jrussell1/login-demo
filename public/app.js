@@ -125,6 +125,8 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
+
+  writeUserData(user.uid, user.name, user.email, user.imageUrl)();
   
   if (user.photoURL){
     var photoURL = user.photoURL;
@@ -228,5 +230,5 @@ window.addEventListener('load', initApp);
           username: name,
           email: email,
           profile_picture : imageUrl
-        })();
+        });
       }
