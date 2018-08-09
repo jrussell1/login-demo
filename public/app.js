@@ -228,5 +228,5 @@ window.addEventListener('load', initApp);
           username: name,
           email: email,
           profile_picture : imageUrl
-        });
+        })();
       }
