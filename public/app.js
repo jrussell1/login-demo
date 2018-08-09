@@ -225,5 +225,5 @@ window.addEventListener('load', initApp);
         firebase.database().ref('user/' + userId).set({
           username: name,
           email: email,
-        });
+        })();
       }
