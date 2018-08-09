@@ -121,6 +121,13 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
+
+  function writeUserData(userId, name, email) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email
+    })();
+  }
   if (user.photoURL){
     var photoURL = user.photoURL;
     // Append size to the photo URL for Google hosted images to avoid requesting
