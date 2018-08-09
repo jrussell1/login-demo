@@ -123,20 +123,6 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
-
-  
-      //attach user to Realtime DB 
-      var database = firebase.database();
-
-      function writeUserData(userId, name, email, imageUrl) {
-        firebase.database().ref('user/' + userId).set({
-          userId: user,
-          username: name,
-          email: email,
-          profile_picture : imageUrl
-        })();
-      }
-  
   
   if (user.photoURL){
     var photoURL = user.photoURL;
@@ -154,6 +140,18 @@ var handleSignedInUser = function(user) {
     document.getElementById('photo').style.display = 'none';
   }
 };
+
+      //attach user to Realtime DB 
+      var database = firebase.database();
+
+      function writeUserData(userId, name, email, imageUrl) {
+        firebase.database().ref('user/' + userId).set({
+          userId: user,
+          username: name,
+          email: email,
+          profile_picture : imageUrl
+        })();
+      }
 
 /**
  * Displays the UI for a signed out user.
