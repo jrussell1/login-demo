@@ -112,17 +112,6 @@ var signInWithPopup = function() {
   window.open(getWidgetUrl(), 'Sign In', 'width=985,height=735');
 };
 
-//attach user to Realtime DB 
-var database = firebase.database();
-
-function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-}
-
 
 /**
  * Displays the UI for a signed in user.
@@ -134,6 +123,18 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
+  
+  //attach user to Realtime DB 
+var database = firebase.database();
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+
   if (user.photoURL){
     var photoURL = user.photoURL;
     // Append size to the photo URL for Google hosted images to avoid requesting
