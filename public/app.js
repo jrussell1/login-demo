@@ -112,6 +112,17 @@ var signInWithPopup = function() {
   window.open(getWidgetUrl(), 'Sign In', 'width=985,height=735');
 };
 
+//attach user to Realtime DB 
+var database = firebase.database();
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+
 
 /**
  * Displays the UI for a signed in user.
@@ -139,16 +150,6 @@ var handleSignedInUser = function(user) {
     document.getElementById('photo').style.display = 'none';
   }
 };
-//attach user to Realtime DB 
-var database = firebase.database();
-
-function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-}
 
 /**
  * Displays the UI for a signed out user.
