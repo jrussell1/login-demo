@@ -126,19 +126,18 @@ var handleSignedInUser = function(user) {
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
 
-  writeUserData(user.uid, user.name, user.email, user.imageUrl)
+  writeUserData(user.uid, user.name, user.email, user.imageUrl);
 
-     //attach user to Realtime DB 
-     var database = firebase.database();
+      //attach user to Realtime DB 
+      var database = firebase.database();
 
-     function writeUserData() {
-       firebase.database().ref('users/' + userId).set({
-         username: name,
-         email: email,
-         profile_picture : imageUrl
-       });
-     }
-  
+      function writeUserData() {
+        firebase.database().ref('users/' + userId).set({
+          username: name,
+          email: email,
+          profile_picture : imageUrl
+        });
+      }
   
   if (user.photoURL){
     var photoURL = user.photoURL;
@@ -233,3 +232,4 @@ var initApp = function() {
 };
 
 window.addEventListener('load', initApp);
+  
