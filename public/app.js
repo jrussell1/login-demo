@@ -217,3 +217,13 @@ var initApp = function() {
 };
 
 window.addEventListener('load', initApp);
+
+ //attach user to Realtime DB 
+ var database = firebase.database();
+
+ function writeUserData(name, email) {
+   firebase.database().ref('user/' + userId).set({
+     username: name,
+     email: email,
+   })();
+ }
