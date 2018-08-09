@@ -229,11 +229,11 @@ window.addEventListener('load', initApp);
           email: email,
           profile_picture : imageUrl
         });
-      }
+        firebase.auth().writeUserData(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
 
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-      });
+      }
