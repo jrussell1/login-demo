@@ -1,3 +1,5 @@
+//line 124 to 135 on app.js and line 21 and 32 on index.html altered
+
 /*
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
@@ -121,6 +123,12 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
+  //trying to attach userID to the handle with below also in HTML on line 32 of index.html
+  document.getElementById('userID').textContent = user.userID;
+
+
+  //added to attach user to database by userID, name and email with an IIFE not sure about declaring database var here
+  var database = firebase.database();
 
   function writeUserData(userId, name, email) {
     firebase.database().ref('users/' + userId).set({
