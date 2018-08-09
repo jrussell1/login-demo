@@ -123,6 +123,7 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
+
   
   
   if (user.photoURL){
