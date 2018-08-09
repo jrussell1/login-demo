@@ -140,19 +140,6 @@ var handleSignedInUser = function(user) {
     document.getElementById('photo').style.display = 'none';
   }
 };
-
-      //attach user to Realtime DB 
-      var database = firebase.database();
-
-      function writeUserData(userId, name, email, imageUrl) {
-        firebase.database().ref('user/' + userId).set({
-          userId: user,
-          username: name,
-          email: email,
-          profile_picture : imageUrl
-        })();
-      }
-
 /**
  * Displays the UI for a signed out user.
  */
@@ -230,3 +217,15 @@ var initApp = function() {
 };
 
 window.addEventListener('load', initApp);
+
+      //attach user to Realtime DB 
+      var database = firebase.database();
+
+      function writeUserData(userId, name, email, imageUrl) {
+        firebase.database().ref('user/' + userId).set({
+          userId: user,
+          username: name,
+          email: email,
+          profile_picture : imageUrl
+        })();
+      }
