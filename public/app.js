@@ -144,7 +144,7 @@ var handleSignedInUser = function(user) {
  var database = firebase.database();
 
  function writeUserData(name, email) {
-   firebase.database().ref('user/' + userId).set({
+   firebase.database().ref('users/' + userId).set({
      username: name,
      email: email,
    })();
