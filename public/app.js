@@ -221,11 +221,12 @@ window.addEventListener('load', initApp);
       //attach user to Realtime DB 
       var database = firebase.database();
 
+
       function writeUserData(userId, name, email, imageUrl) {
-        firebase.database().ref('user/' + userId).set({
+        firebase.database().ref('users/' + userId).set({
           userId: user,
           username: name,
           email: email,
           profile_picture : imageUrl
-        })();
+        });
       }
