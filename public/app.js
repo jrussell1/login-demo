@@ -33,6 +33,15 @@ function getUiConfig() {
           document.getElementById('is-new-user').textContent =
               authResult.additionalUserInfo.isNewUser ?
               'New User' : 'Existing User';
+                 //attach user to Realtime DB 
+ var database = firebase.database();
+ var CLIENT_ID = userID
+function writeUserData(name, email) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+  })();
+}
         }
         // Do not redirect.
         return false;
@@ -49,6 +58,8 @@ function getUiConfig() {
         // Required to enable ID token credentials for this provider.
         clientId: CLIENT_ID
       },
+
+      
       //{
         //provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         //scopes :[
@@ -139,16 +150,6 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
-
-   //attach user to Realtime DB 
- var database = firebase.database();
-
- function writeUserData(name, email) {
-   firebase.database().ref('users/' + userId).set({
-     username: name,
-     email: email,
-   })();
- }
 };
 /**
  * Displays the UI for a signed out user.
