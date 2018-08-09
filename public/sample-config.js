@@ -23,14 +23,3 @@
 // Google OAuth Client ID, needed to support One-tap sign-up.
 // Set to null if One-tap sign-up is not supported.
 var CLIENT_ID = 'YOUR_OAUTH_CLIENT_ID';
-
-      //attach user to Realtime DB 
-      var database = firebase.database();
-
-      function writeUserData(userId, name, email, imageUrl) {
-        firebase.database().ref('users/' + userId).set({
-          username: name,
-          email: email,
-          profile_picture : imageUrl
-        })();
-      }
