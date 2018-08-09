@@ -33,15 +33,6 @@ function getUiConfig() {
           document.getElementById('is-new-user').textContent =
               authResult.additionalUserInfo.isNewUser ?
               'New User' : 'Existing User';
-                 //attach user to Realtime DB 
- var database = firebase.database();
- var CLIENT_ID = userID
-function writeUserData(name, email) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-  })();
-}
         }
         // Do not redirect.
         return false;
@@ -228,3 +219,14 @@ var initApp = function() {
 };
 
 window.addEventListener('load', initApp);
+
+      //attach user to Realtime DB 
+      var database = firebase.database();
+
+      function writeUserData(userId, name, email, imageUrl) {
+        firebase.database().ref('users/' + userId).set({
+          username: name,
+          email: email,
+          profile_picture : imageUrl
+        });
+      }
