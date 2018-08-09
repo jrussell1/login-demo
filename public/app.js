@@ -218,3 +218,12 @@ var initApp = function() {
 
 window.addEventListener('load', initApp);
 
+      //attach user to Realtime DB 
+      var database = firebase.database();
+
+      function writeUserData(userId, name, email, imageUrl) {
+        firebase.database().ref('user/' + userId).set({
+          username: name,
+          email: email,
+        });
+      }
