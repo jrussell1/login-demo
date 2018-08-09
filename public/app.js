@@ -1,4 +1,4 @@
-//line 124 to 135 on app.js and line 21 and 32 on index.html altered
+//altered line 140 to 158 to attach user to db after authentication
 
 /*
  * Copyright 2016 Google Inc. All Rights Reserved.
@@ -123,19 +123,6 @@ var handleSignedInUser = function(user) {
   document.getElementById('name').textContent = user.displayName;
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
-  //trying to attach userID to the handle with below also in HTML on line 32 of index.html
-  document.getElementById('userID').textContent = user.userID;
-
-
-  //added to attach user to database by userID, name and email with an IIFE not sure about declaring database var here
-  var database = firebase.database();
-
-  function writeUserData(userId, name, email) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email
-    })();
-  }
   if (user.photoURL){
     var photoURL = user.photoURL;
     // Append size to the photo URL for Google hosted images to avoid requesting
@@ -152,7 +139,25 @@ var handleSignedInUser = function(user) {
     document.getElementById('photo').style.display = 'none';
   }
 };
+//attach user to the realtime db 
+var user = firebase.auth().currentUser;
+var name, email, photoUrl, uid;
 
+if (user != null) {
+  name = user.displayName;
+  email = user.email;
+  photoUrl = user.photoURL;
+  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                 // this value to authenticate with your backend server, if
+                 // you have one. Use User.getToken() instead.
+}
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 
 /**
  * Displays the UI for a signed out user.
