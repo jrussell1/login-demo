@@ -124,13 +124,13 @@ var handleSignedInUser = function(user) {
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
   
-  writeUserData(user.displayName, user.email);
+  writeUserData(user.uid, user.displayName, user.email);
 
   //attach user to Realtime DB 
   //var database = firebase.database();
   
   function writeUserData(displayName, email) {
-    firebase.database().ref('user/' + userId).set({
+    firebase.database().ref('users/' + userId).set({
       displayName = user.displayName,
       email = user.email
     });
