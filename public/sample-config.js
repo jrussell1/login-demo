@@ -19,7 +19,6 @@
     storageBucket: "mud-4e9fe.appspot.com",
   };
   firebase.initializeApp(config);
-  var database = firebase.database();
 
   
 
