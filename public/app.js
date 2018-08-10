@@ -129,12 +129,7 @@ var handleSignedInUser = function(user) {
   //attach user to Realtime DB 
   //var database = firebase.database();
   
-  function writeUserData(displayName, email) {
-    firebase.database().ref('users/' + userId).set({
-      displayName = user.displayName,
-      email = user.email
-    });
-  }
+ 
 
   if (user.photoURL){
     var photoURL = user.photoURL;
