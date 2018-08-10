@@ -223,10 +223,10 @@ var initApp = function() {
 
 window.addEventListener('load', initApp);
 
-function writeUserData(userId, name, email, imageUrl) {
+function writeUserData(userId, name, email) {
   firebase.database().ref(userId).set({
     username: name,
-    email: email,
-    profile_picture : imageUrl
+    email: email //,
+   // profile_picture : imageUrl
   });
 }
