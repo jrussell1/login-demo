@@ -19,6 +19,7 @@
     storageBucket: "mud-4e9fe.appspot.com",
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
 
 // Google OAuth Client ID, needed to support One-tap sign-up.
 // Set to null if One-tap sign-up is not supported.

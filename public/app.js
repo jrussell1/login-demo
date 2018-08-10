@@ -127,7 +127,7 @@ var handleSignedInUser = function(user) {
   writeUserData(user.uid, user.name, user.email, user.imageUrl);
 
   //attach user to Realtime DB 
-  var database = firebase.database();
+  //var database = firebase.database();
   
   function writeUserData(userId, name, email, imageUrl) {
     firebase.database().ref('user/' + userId).set({
