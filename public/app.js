@@ -49,8 +49,6 @@ function getUiConfig() {
         // Required to enable ID token credentials for this provider.
         clientId: CLIENT_ID
       },
-
-      
       //{
         //provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         //scopes :[
@@ -126,10 +124,9 @@ var handleSignedInUser = function(user) {
   document.getElementById('email').textContent = user.email;
   document.getElementById('phone').textContent = user.phoneNumber;
 
-  console.log(user.uid);
   writeUserData(user.uid, user.name, user.email, user.imageUrl);
-  
-  
+
+
   if (user.photoURL){
     var photoURL = user.photoURL;
     // Append size to the photo URL for Google hosted images to avoid requesting
@@ -146,6 +143,7 @@ var handleSignedInUser = function(user) {
     document.getElementById('photo').style.display = 'none';
   }
 };
+
 /**
  * Displays the UI for a signed out user.
  */
@@ -223,4 +221,3 @@ var initApp = function() {
 };
 
 window.addEventListener('load', initApp);
-  
