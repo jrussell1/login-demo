@@ -223,8 +223,9 @@ var initApp = function() {
 
 window.addEventListener('load', initApp);
 
-function writeUserData(userId, name, email) {
-  firebase.database().ref(userId).set({
+function writeUserData(userId, name, email) {; 
+  firebase.database().ref('/users/').push({userID: {}});
+  firebase.database().ref('/users/' + userId).set({
     username: name,
     email: email //,
    // profile_picture : imageUrl
