@@ -223,6 +223,8 @@ var initApp = function() {
 
 window.addEventListener('load', initApp);
 
+//Push the user into DB
+
 function writeUserData(userId, name, email) {; 
   firebase.database().ref('users/').push({userID: {}});
   firebase.database().ref('users/' + userId).set({
